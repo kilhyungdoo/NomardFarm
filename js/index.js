@@ -2,9 +2,14 @@ document.addEventListener( 'DOMContentLoaded', function() {
   "use strict";
   // this is parent js
 
+	setTab('./tab.html', 'tab1', "1");
+	setTab('./tab.html', 'tab2', "2");
+	setTab('./tab.html', 'tab3', "3");
+
+
     var latitude = 35.686533327621
     var longitude = 139.69192653894
-	document.getElementById('#navTabs1').addEventListener('click', function() {
+	document.getElementById('#navTabs1-1').addEventListener('click', function() {
 		setTimeout(function() {
 			console.info('weathre chart render start');
 			renderWeather(latitude, longitude);
@@ -13,6 +18,17 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	renderWeather(latitude, longitude);
 
 });
+
+function setTab(htmlURL, tabId, idSuffix) {
+	var html = $.ajax({
+		url: htmlURL,
+		async: false
+	}).responseText;
+
+	html = html.replace(/{{id}}/g, idSuffix);
+
+	document.getElementById(tabId).insertAdjacentHTML('afterbegin', html);
+}
 
 var labelsArray = []
 var precipitationArray = []
@@ -41,11 +57,11 @@ function renderWeather(latitude, longitude) {
 		]
 	};
 
-	var canvas = document.getElementById('canvas');
+	var canvas = document.getElementById('canvas-1');
 	canvas.width = 455;
 	canvas.height = 300;
 
-	var ctx = document.getElementById("canvas").getContext("2d");
+	var ctx = document.getElementById("canvas-1").getContext("2d");
 	window.myLine = new Chart(ctx).Line(lineChartData, {
 		responsive: true
 	});

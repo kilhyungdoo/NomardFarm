@@ -29,94 +29,23 @@
   <section class="container text-center">
     <ul class="nav nav-tabs nav-justified nav__main">
       <li class="active">
-        <a href="#tab1" data-toggle="tab"><img src="http://placehold.it/50x50"></a>
+        <a href="#tab1" data-toggle="tab"><img src="http://placehold.it/50x50">
+          <div class="car_no">nomado1号</div>
+        </a>
       </li>
       <li>
-        <a href="#tab2" data-toggle="tab"><img src="http://placehold.it/50x50"></a>
+        <a href="#tab2" data-toggle="tab"><img src="http://placehold.it/50x50">
+          <div class="car_no">nomado2号</div>
+        </a>
       </li>
       <li>
-        <a href="#tab3" data-toggle="tab"><img src="http://placehold.it/50x50"></a>
+        <a href="#tab3" data-toggle="tab"><img src="http://placehold.it/50x50">
+          <div class="car_no">nomado3号</div>
+        </a>
       </li>
     </ul>
     <div id="mainTabContent" class="tab-content tab-content">
       <div class="tab-pane fade in active" id="tab1">
-        <div class="row">
-
-          <div class="col-md-6 col-left">
-            <section class="row">
-              <div class="external__status row">
-
-                <div class="col-md-10">
-                  <ul id="#navTabs1" class="nav nav-tabs pull-right">
-                    <li class="active"><a href="#subtab1" data-toggle="tab">位置</a></li>
-                    <li><a href="#subtab2" data-toggle="tab">天気図</a></li>
-                  </ul>
-                  <div id="subTabContent" class="tab-content">
-                    <div class="tab-pane fade in active" id="subtab1">
-                      <img src="http://placehold.it/455x300?text=Map">
-                    </div>
-                    <div class="tab-pane fade" id="subtab2">
-                      <canvas id="canvas" height="300" width="455"></canvas>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-2">
-                  <div class="weather">
-                    <img class="weather__icon" src="http://placehold.it/65x65?text=WeatherIcon">
-                    <div class="whather__caption">rain</div>
-                  </div>
-                  <div class="temp">
-                    <span class="temp__numeric">-3<span class="temp__unit">℃</span></span>
-                    <div class="temp__caption">temp</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="internal__status">
-                <div class="col-md-10">
-                  <img src="http://placehold.it/455x300?text=car_illust">
-                </div>
-                <div class="col-md-2">
-                  <img src="http://placehold.it/65x65?text=cartemp">
-                  <img src="http://placehold.it/65x65?text=carlight">
-                  <img src="http://placehold.it/65x65?text=rain">
-                </div>
-                <div class="col-md-12">
-                  <div class="well well-lg">ログ</div>
-                </div>
-              </div>
-
-            </section>
-          </div>
-
-          <div class="col-md-6 col-right">
-            <div class="thumbnail">
-              <img src="http://placehold.it/440x200" alt="...">
-              <div class="caption">
-                <div class="col-md-12">
-                  <button href="#" class="btn btn-default col-md-3" role="button">窓</button>
-                  <button href="#" class="btn btn-default col-md-3" role="button">移動</button>
-                  <button href="#" class="btn btn-default col-md-3" role="button">温度</button>
-                  <button href="#" class="btn btn-danger col-md-3" role="button">緊急</button>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-6">
-                    <img src="http://placehold.it/197x200" alt="...">
-                  </div>
-                  <div class="col-md-6">
-                    <img src="http://placehold.it/197x200" alt="...">
-                  </div>
-                  <div class="col-md-6">
-                    <img src="http://placehold.it/197x200" alt="...">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
       </div>
       <div class="tab-pane fade" id="tab2">
         <p>コンテンツ2</p>
@@ -138,7 +67,7 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
   <!-- vehicle api 必須 : ここから-->
-  <script src="http://52.193.125.145:3000/socket.io/socket.io.js"></script> 
+  <script src="http://52.193.125.145:3000/socket.io/socket.io.js"></script>
   <script src="http://52.193.125.145:3000/www/js/vehicleAPI.js"></script>
   <script src="http://52.193.125.145:3000/www/js/vehicleAPI-client.js"></script>
 
