@@ -11,7 +11,7 @@ Manager = function(targetDocument, roomId, iframeId) {
 
   // Layout init
   var id = this.getId('WSRoomID', this.iframeId);
-  this.targetDocument.getElementById(id).innerHTML = roomId;
+//  this.targetDocument.getElementById(id).innerHTML = roomId;
 
 };
 
@@ -19,13 +19,13 @@ Manager = function(targetDocument, roomId, iframeId) {
 Manager.prototype.vehicleSpeedCallBack = function(vehicleSpeed) {
   var id = this.getId('VehicleSpeed', this.iframeId);
   this.log("vehicle speed changed to: ", vehicleSpeed.speed);
-  this.targetDocument.getElementById(id).innerHTML = Math.floor(vehicleSpeed.speed /1000);
+//  this.targetDocument.getElementById(id).innerHTML = Math.floor(vehicleSpeed.speed /1000);
 };
 
 Manager.prototype.engineSpeedCallBack = function(engineSpeed) {
   var id = this.getId('EngineSpeed', this.iframeId);
   this.log("engine speed changed to: ", engineSpeed.speed);
-  this.targetDocument.getElementById(id).innerHTML = Math.floor(engineSpeed.speed /1000);
+//  this.targetDocument.getElementById(id).innerHTML = Math.floor(engineSpeed.speed /1000);
 };
 
 Manager.prototype.locationCallBack = function(location) {
@@ -36,8 +36,8 @@ Manager.prototype.locationCallBack = function(location) {
   var latitude = location.latitude;
   var longitude = location.longitude;
 
-  this.targetDocument.getElementById(latitudeId).innerHTML = latitude;
-  this.targetDocument.getElementById(longitudeId).innerHTML = longitude;
+//  this.targetDocument.getElementById(latitudeId).innerHTML = latitude;
+//  this.targetDocument.getElementById(longitudeId).innerHTML = longitude;
 
 };
 
