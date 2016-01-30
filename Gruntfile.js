@@ -8,7 +8,7 @@ module.exports = function(grunt) {
         livereload: true
       },
       html: {
-        files: ['index.html', 'js/**', 'css/**'],
+        files: ['*.html', 'js/**', 'css/**'],
       },
     },
     connect: {
