@@ -27,6 +27,10 @@ document.addEventListener( 'DOMContentLoaded', function() {
     manager.locationCallBack(location);
   });
 
+  // Fuel
+  var fuelSub = navigator.vehicle.fuel.subscribe(function(fuel) {
+    manager.fuelCallBack(fuel);
+  });
 });
 
 
