@@ -25,6 +25,7 @@
 </head>
 
 <body>
+
   <section class="container text-center">
     <ul class="nav nav-tabs nav-justified nav__main">
       <li class="active">
@@ -46,7 +47,7 @@
               <div class="external__status row">
 
                 <div class="col-md-10">
-                  <ul class="nav nav-tabs pull-right">
+                  <ul id="#navTabs1" class="nav nav-tabs pull-right">
                     <li class="active"><a href="#subtab1" data-toggle="tab">位置</a></li>
                     <li><a href="#subtab2" data-toggle="tab">天気図</a></li>
                   </ul>
@@ -55,7 +56,7 @@
                       <img src="http://placehold.it/455x300?text=Map">
                     </div>
                     <div class="tab-pane fade" id="subtab2">
-                      <img src="http://placehold.it/455x300?text=weather">
+                      <canvas id="canvas" height="300" width="455"></canvas>
                     </div>
                   </div>
                 </div>
@@ -140,6 +141,9 @@
   <script src="http://52.193.125.145:3000/socket.io/socket.io.js"></script> 
   <script src="http://52.193.125.145:3000/www/js/vehicleAPI.js"></script>
   <script src="http://52.193.125.145:3000/www/js/vehicleAPI-client.js"></script>
+
+  <!-- other library -->
+  <script src="js/Chart.js/Chart.js"></script>
 
   <!-- grunt -->
   <script src="http://localhost:35729/livereload.js"></script>
