@@ -41,6 +41,13 @@ Manager.prototype.locationCallBack = function(location) {
 
 };
 
+Manager.prototype.fuelCallBack = function(fuel) {
+  var level = fuel.level; // percentage of 100
+  var consumption = fuel.instantConsumption;
+  this.log('fuel level: ', level);
+  this.log('fuel consumption: ', consumption);
+};
+
 Manager.prototype.log = function(message, object) {
   console.log('[' + this.roomId + '] ' + message, object);
 };
