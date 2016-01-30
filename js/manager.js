@@ -49,7 +49,14 @@ Manager.prototype.fuelCallBack = function(fuel) {
 };
 
 Manager.prototype.log = function(message, object) {
-  console.log('[' + this.roomId + '] ' + message, object);
+  var header = '[' + this.roomId + '] ';
+  console.log(header + message, object);
+  var id = 'logBox-' + this.iframeId;
+  var log = this.targetDocument.getElementById(id);
+  log.innerHTML = log.innerHTML + '<br>' + header + message + object;
+
+  var scrollHeight = log.scrollHeight;
+  log.scrollTop = scrollHeight;
 };
 
 Manager.prototype.getId = function(string, iframeId) {
