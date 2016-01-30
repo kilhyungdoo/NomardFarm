@@ -2,14 +2,14 @@ document.addEventListener( 'DOMContentLoaded', function() {
   "use strict";
   // this is parent js
 
+    var latitude = 35.686533327621
+    var longitude = 139.69192653894
 	document.getElementById('#navTabs1').addEventListener('click', function() {
 		setTimeout(function() {
 			console.info('weathre chart render start');
-			renderWeather();
+			renderWeather(latitude, longitude);
 		}, 1000);
 	});
-    var latitude = 35.686533327621
-    var longitude = 139.69192653894
 	renderWeather(latitude, longitude);
 
 });
