@@ -17,10 +17,20 @@
         var sampleData = 25;
         var jsonData;
         $(document).ready(function(){
-            $.getJSON("http://api.yumake.jp/1.0/forecastMsm.php?lat=35.686533327621&lon=139.69192653894&key=0251f12288edabb56b3559173587cc54&format=jsonp", function(data) {
-                //dataArray = xx;
-            })
+        	getJSONP();
         });
+
+				function getJSONP() {
+					var element = document.createElement("script");
+					element.src = "http://api.yumake.jp/1.0/forecastMsm.php?lat=35.686533327621&lon=139.69192653894&key=0251f12288edabb56b3559173587cc54&format=jsonp&callback=getJSON";
+					document.body.appendChild(element);
+				}
+
+				function getJSON(data) {
+					console.info('get json success');
+					console.info(data);
+				}
+
 
 		var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
         //var sampleArray = '{"name":"tom","Second":"smith","age":"20","value":"180","status":"success"}'
