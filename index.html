@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf8">
+	<title>automobile</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+<body>
+
+  <div>
+    Room ID:<span id="WSRoomID_1"> </span>
+  </div>
+  <div>
+    VehicleSpeed:<span id="VehicleSpeed_1"> </span> [km/h]
+  </div>
+  <div>
+    EngineSpeed:<span id="EngineSpeed_1"> </span> [km/h]
+  </div>
+  <div>
+    <div>Location latitude:<span id="LocationLatitude_1"></span></div>
+    <div>Location longitude:<span id="LocationLongitude_1"></span></div>
+  </div>
+
+  <hr></hr>
+
+  <div>
+    Room ID:<span id="WSRoomID_2"> </span>
+  </div>
+  <div>
+    VehicleSpeed:<span id="VehicleSpeed_2"> </span> [km/h]
+  </div>
+  <div>
+    EngineSpeed:<span id="EngineSpeed_2"> </span> [km/h]
+  </div>
+  <div>
+    <div>Location latitude:<span id="LocationLatitude_2"></span></div>
+    <div>Location longitude:<span id="LocationLongitude_2"></span></div>
+  </div>
+
+  <hr></hr>
+
+  <div>
+    Room ID:<span id="WSRoomID_3"> </span>
+  </div>
+  <div>
+    VehicleSpeed:<span id="VehicleSpeed_3"> </span> [km/h]
+  </div>
+  <div>
+    EngineSpeed:<span id="EngineSpeed_3"> </span> [km/h]
+  </div>
+  <div>
+    <div>Location latitude:<span id="LocationLatitude_3"></span></div>
+    <div>Location longitude:<span id="LocationLongitude_3"></span></div>
+  </div>
+
+  <!-- vehicle api 必須 : ここから-->
+  <script src="http://52.193.125.145:3000/socket.io/socket.io.js"></script> 
+  <script src="http://52.193.125.145:3000/www/js/vehicleAPI.js"></script>
+  <script src="http://52.193.125.145:3000/www/js/vehicleAPI-client.js"></script>
+
+  <!-- library js -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://localhost:35729/livereload.js"></script>
+
+  <!-- original js -->
+  <script type="text/javascript" src="js/manager.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+
+  <iframe src="sub1.html" height="0" width="0"></iframe>
+  <iframe src="sub2.html" height="0" width="0"></iframe>
+  <iframe src="sub3.html" height="0" width="0"></iframe>
+
+</body>
+</html>
