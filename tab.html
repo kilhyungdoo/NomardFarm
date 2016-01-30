@@ -21,8 +21,7 @@
 
         <div class="col-md-2">
           <div class="weather">
-            <img class="weather__icon" src="http://placehold.it/65x65?text=WeatherIcon">
-            <div class="weather__caption">rain</div>
+            <img class="weather__icon" src="img/weather_rain.png" width="72">
           </div>
           <div class="temp">
             <span class="temp__numeric">-3<span class="temp__unit">℃</span></span>
@@ -32,23 +31,20 @@
       </div>
 
       <div class="internal__status row">
-        <div class="col-md-10 car_status">
-          <img src="http://placehold.it/455x300?text=car_illust">
+        <div class="col-md-12 car_status">
+          <img src="img/animation_open.gif">
         </div>
-        <div class="col-md-2">
-          <div class="car_speed">
-            <img class="car_speed__icon" src="http://placehold.it/65x65?text=SpeedIcon">
-            <div class="car_speed__caption">km/h</div>
+          <div class="text-left">
+            <div class="car_speed col-md-4">
+              <img class="car_speed__icon" src="img/icon_speed.png"><span class="car_speed__caption">50km/h</span>
+            </div>
+            <div class="car_temp col-md-4">
+              <img class="car_temp__icon" src="img/icon_temp.png"><span class="car_temp__caption">18℃</span>
+            </div>
+            <div class="car_fuel col-md-4">
+              <img class="car_fuel__icon" src="img/icon_gas.png"><span class="car_fuel__caption">80%</span>
+            </div>
           </div>
-          <div class="car_fuel">
-            <img class="car_fuel__icon" src="http://placehold.it/65x65?text=SpeedIcon">
-            <div class="car_fuel__caption">l</div>
-          </div>
-          <div class="car_temp">
-            <img class="car_temp__icon" src="http://placehold.it/65x65?text=SpeedIcon">
-            <div class="car_temp__caption">℃</div>
-          </div>
-        </div>
         <div class="col-md-12">
           <div class="well well-lg">
             <div id="logBox-{{id}}" class="log well well-lg"></div>
