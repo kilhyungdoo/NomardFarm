@@ -1,3 +1,7 @@
+iframe {
+  display: none;
+}
+
 body {
   border-color: #070707 transparent;
 }
