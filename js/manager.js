@@ -105,7 +105,16 @@ Manager.prototype.addMarker2 = function(vspeed, espeed, latitude, longitude) {
 Manager.prototype.vehicleSpeedCallBack = function(vehicleSpeed) {
   var id = this.getId('VehicleSpeed', this.iframeId);
   this.log("vehicle speed changed to: ", vehicleSpeed.speed);
-//  this.targetDocument.getElementById(id).innerHTML = Math.floor(vehicleSpeed.speed /1000);
+  this.targetDocument.getElementById(id).innerHTML = Math.floor(vehicleSpeed.speed /1000) + "<span class='unit'>km/h</span>";
+
+  // 車のアニメーションを変化させる
+  var id = this.getId('CarAni', this.iframeId);
+
+  if (vehicleSpeed.speed / 1000 > 2) {
+      this.targetDocument.getElementById(id).innerHTML = "<img src='img/animation_close.gif'>";
+  } else {
+      this.targetDocument.getElementById(id).innerHTML = "<img src='img/animation_open.gif'>";
+  }
 };
 
 Manager.prototype.engineSpeedCallBack = function(engineSpeed) {
