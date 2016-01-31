@@ -2,19 +2,10 @@
 
   <div class="col-md-6 col-left">
     <div class="external__status row">
-
-      <div class="col-md-10">
-        <ul id="#navTabs1-{{id}}" class="nav nav-tabs pull-right">
-          <li class="active"><a href="#subtab1-{{id}}" data-toggle="tab">位置</a></li>
-          <li><a href="#subtab2-{{id}}" data-toggle="tab">天気図</a></li>
-        </ul>
-        <div id="subTabContent-{{id}}" class="tab-content">
-          <div class="tab-pane fade in active" id="subtab1-{{id}}">
-            <img src="http://placehold.it/455x300?text=Map">
-          </div>
-          <div class="tab-pane fade" id="subtab2-{{id}}">
-            <canvas id="canvas-{{id}}" height="300" width="455"></canvas>
-          </div>
+      <div class="col-md-10 map">
+        <h3>カーマップ</h3>
+        <div class="tab-pane fade in active" id="subtab1-{{id}}">
+          <img src="http://placehold.it/455x300?text=Map">
         </div>
       </div>
 
@@ -70,8 +61,9 @@
     </div>
     <div class="monitoring">
       <h3>成育情報モニタリング</h3>
-      <img src="http://placehold.it/555x250">
-    </div>
+      <div class="col-md-12">
+        <canvas id="canvas-{{id}}" height="300" width="440"></canvas>
+      </div>
     <div class="col-md-12">
       <div class="col-md-6">
         <button class="btn btn-default btn-block daylighting" role="button">採光</button>
