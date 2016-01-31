@@ -62,5 +62,5 @@ Manager.prototype.log = function(message, object) {
 };
 
 Manager.prototype.getId = function(string, iframeId) {
-  return string + '_' + iframeId;
+  return string + '-' + iframeId;
 };
