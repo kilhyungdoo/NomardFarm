@@ -41,6 +41,41 @@ Manager.prototype.initMap = function() {
 
 };
 
+
+Manager.prototype.addMarker2 = function(vspeed, espeed, latitude, longitude) {
+/*  var map;
+  var marker = [];
+  var gCount = 0;
+  var polyline = [];
+  var polylinePoints = [];
+  var polylineOptions = {
+        color: 'blue',
+        weight: 3,
+        opacity: 0.9
+  };
+
+  var zIn = 0;
+  if(gCount > 0){
+    map.removeLayer(marker[gCount-1]);
+  }
+  
+  if(latitude === "" || longitude === ""){
+    return;
+  }
+  
+  marker[gCount] = L.marker([latitude, longitude])
+    .setIcon(redCarIcon)
+    .bindPopup("<h2>Vehicle Speed: " + vspeed + "km/h" + "</h2><h2>Engine Speed:  " + espeed + "rpm</h2>")
+    .addTo(map)
+    .openPopup();
+  
+  zIn = gCount * 10; // gCountをそのままsetZIndexOffset()に与えても新しいマーカーが必ずしも上にならないので、大きな差をつける。
+  marker[gCount].setZIndexOffset(zIn);//マーカーにz-indexを設定
+  map.panTo(new L.latLng(latitude, longitude));//地図の自動移動
+  
+  gCount++; */
+};
+
 // callback for getting data real time
 Manager.prototype.vehicleSpeedCallBack = function(vehicleSpeed) {
   var id = this.getId('VehicleSpeed', this.iframeId);
@@ -61,6 +96,11 @@ Manager.prototype.locationCallBack = function(location) {
   this.log('location: ', location);
   var latitude = location.latitude;
   var longitude = location.longitude;
+
+
+  var gVehicleSpeed = 10;
+  var gEngineSpeed = 10;
+  addMarker2(gVehicleSpeed, gEngineSpeed, location.latitude, location.longitude);
 
 //  this.targetDocument.getElementById(latitudeId).innerHTML = latitude;
 //  this.targetDocument.getElementById(longitudeId).innerHTML = longitude;
