@@ -84,13 +84,13 @@ Manager.prototype.addMarker2 = function(vspeed, espeed, latitude, longitude) {
   }
 
   var self = this;
-  this.map.eachLayer(function (layer) {
+/*  this.map.eachLayer(function (layer) {
     if (layer._url) {
       console.warn('map not delete');
     } else {
       self.map.removeLayer(layer);
     }
-  });
+  });*/
   
   if(latitude === "" || longitude === ""){
     return;
