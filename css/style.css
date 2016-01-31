@@ -2,14 +2,13 @@ iframe {
   display: none;
 }
 body {
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
+  font-family: Avenir, "Open Sans", "Helvetica Neue", Helvetica, Arial, Verdana, Roboto, "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
   color: #eee;
 }
 .background-image {
   position: fixed;
+  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
   z-index: 1;
@@ -28,6 +27,8 @@ body {
 }
 .background-color {
   position: fixed;
+  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
   z-index: 2;
@@ -35,8 +36,8 @@ body {
   height: 100%;
   background-color: rgba(0, 0, 0, .7);
 }
-section.container{
-  position: fixed;
+section.container {
+  position: absolute;
   left: 0;
   right: 0;
   z-index: 9999;
@@ -88,9 +89,16 @@ section.container{
   font-size: 65px;
   line-height: 1.1;
 }
+.car_status {
+  padding-bottom: 20px;
+}
 .car_status__caption {
-  font-size: 35px;
+  font-size: 50px;
+  font-weight: normal;
   vertical-align: middle;
+}
+.car_status__icon {
+  padding-right: 10px;
 }
 .car_status__caption .unit {
   font-size: 18px;
@@ -103,6 +111,9 @@ section.container{
 .well {
   margin-top: 20px;
   padding: 10px;
+  border-radius: 0;
+  background-color: #2a2929;
+  border: none;
 }
 .log {
   width: 100%;
@@ -124,7 +135,7 @@ section.container{
   margin-bottom: 10px;
 }
 .monitoring {
-  margin-bottom: 20px;
+  margin-bottom: 35px;
 }
 .monitoring h3, .map h3 {
   font-size: 16px;
@@ -133,7 +144,7 @@ section.container{
 }
 .btn, .btn:hover {
   font-size: 18px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   background-color: black;
   border: 2px solid white;
 }
