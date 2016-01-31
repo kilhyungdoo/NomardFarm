@@ -15,7 +15,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
   // Vehicle Speed
   var currentTime1 = Date.now();
   var vehicleSpeedSub = navigator.vehicle.vehicleSpeed.subscribe(function(vehicleSpeed) {
-    if (currentTime1 - Date.now() < 1000) {
+    if (Date.now() - currentTime1 > 1000) {
       currentTime1 = Date.now();
       manager.vehicleSpeedCallBack(vehicleSpeed);
     }
@@ -24,7 +24,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
   // Engine Speed
   var currentTime2 = Date.now();
   var engineSpeedSub = navigator.vehicle.engineSpeed.subscribe(function(engineSpeed) {
-    if (currentTime2 - Date.now() < 1000) {
+    if (Date.now() - currentTime2 > 1000) {
       currentTime2 = Date.now();
       manager.engineSpeedCallBack(engineSpeed);
     }
@@ -33,7 +33,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
   // Location
   var currentTime3 = Date.now();
   var locationSub = navigator.vehicle.location.subscribe(function(location) {
-    if (currentTime3 - Date.now() < 1000) {
+    if (Date.now() - currentTime3 > 1000) {
       currentTime3 = Date.now();
       manager.locationCallBack(location);
     }
@@ -42,7 +42,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
   // Fuel
   var currentTime4 = Date.now();
   var fuelSub = navigator.vehicle.fuel.subscribe(function(fuel) {
-    if (currentTime4 - Date.now() < 1000) {
+    if (Date.now() - currentTime4 > 1000) {
       currentTime4 = Date.now();
       manager.fuelCallBack(fuel);
     }
