@@ -158,6 +158,11 @@ section.container {
   width: 455px;  
   height: 300px;
 }
+
+#map-1, #map-2, #map-3 {
+  color:black;
+}
+
 .animation-base{
     position: relative;
     height: 250px;
