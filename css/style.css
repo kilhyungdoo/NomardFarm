@@ -162,3 +162,21 @@ section.container {
 #map-1, #map-2, #map-3 {
   color:black;
 }
+
+.animation-base{
+    position: relative;
+    height: 250px;
+    display: block;
+}
+.animation-car{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 21;
+}
+.animation-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+}

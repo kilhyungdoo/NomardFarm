@@ -107,12 +107,15 @@ Manager.prototype.vehicleSpeedCallBack = function(vehicleSpeed) {
   this.targetDocument.getElementById(id).innerHTML = Math.floor(vehicleSpeed.speed /1000) + "<span class='unit'>km/h</span>";
 
   // 車のアニメーションを変化させる
-  var id = this.getId('CarAni', this.iframeId);
+  var car_id = this.getId('CarAni', this.iframeId);
+  var line_id = this.getId('LineAni', this.iframeId);
 
   if (vehicleSpeed.speed / 1000 > 2) {
-      this.targetDocument.getElementById(id).innerHTML = "<img src='img/animation_close.gif'>";
+      this.targetDocument.getElementById(car_id).innerHTML = "<img src='img/animation_stopMode.gif'>";
+      this.targetDocument.getElementById(line_id).innerHTML = "<img src='img/animation_moveLine.gif'>";
   } else {
-      this.targetDocument.getElementById(id).innerHTML = "<img src='img/animation_open.gif'>";
+      this.targetDocument.getElementById(car_id).innerHTML = "<img src='img/animation_open.gif'>";
+      this.targetDocument.getElementById(line_id).innerHTML = "<img src='img/animation_stopLine.gif'>";
   }
 };
 
