@@ -88,9 +88,13 @@ Manager.prototype.addMarker2 = function(vspeed, espeed, latitude, longitude) {
     return;
   }
   
+  var latitudeStr = Math.floor(latitude * 10000) / 10000.0;
+  var longitudeStr = Math.floor(longitude * 10000) / 10000.0;
+  var popupText = '<div class="popup">緯度:' + latitudeStr + '<br>経度: ' + longitudeStr + '</div>';
+//  <h2>Vehicle Speed: " + vspeed + "km/h" + "</h2><h2>Engine Speed:  " + espeed + "rpm</h2>"
   this.marker[this.gCount] = L.marker([latitude, longitude])
     .setIcon(this.redCarIcon)
-    .bindPopup("<h2>Vehicle Speed: " + vspeed + "km/h" + "</h2><h2>Engine Speed:  " + espeed + "rpm</h2>")
+    .bindPopup(popupText)
     .addTo(this.map)
     .openPopup();
   
@@ -98,7 +102,7 @@ Manager.prototype.addMarker2 = function(vspeed, espeed, latitude, longitude) {
   this.marker[this.gCount].setZIndexOffset(zIn);//マーカーにz-indexを設定
   this.map.panTo(new L.latLng(latitude, longitude));//地図の自動移動
   
-  this.gCount++; 
+  this.gCount++;
 };
 
 // callback for getting data real time
