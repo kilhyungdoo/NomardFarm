@@ -122,6 +122,7 @@ Manager.prototype.vehicleSpeedCallBack = function(vehicleSpeed) {
   // 車のアニメーションを変化させる
   var car_id = this.getId('CarAni', this.iframeId);
   var line_id = this.getId('LineAni', this.iframeId);
+  var pb_id = this.getId('ProgBar', this.iframeId);
 
   if (vehicleSpeed.speed / 1000 > 2) {
       this.targetDocument.getElementById(car_id).innerHTML = "<img src='img/animation_stopMode.gif'>";
@@ -129,6 +130,8 @@ Manager.prototype.vehicleSpeedCallBack = function(vehicleSpeed) {
   } else {
       this.targetDocument.getElementById(car_id).innerHTML = "<img src='img/animation_open.gif'>";
       this.targetDocument.getElementById(line_id).innerHTML = "<img src='img/animation_stopLine.gif'>";
+
+      this.targetDocument.getElementById(pb_id).style.width = '60%';
   }
 };
 
