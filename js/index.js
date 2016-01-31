@@ -24,6 +24,7 @@ function setTab(htmlURL, tabId, idSuffix) {
 		url: htmlURL,
 		async: false
 	}).responseText;
+	console.info(html);
 
 	html = html.replace(/{{id}}/g, idSuffix);
 
