@@ -79,6 +79,8 @@ function getJSON(data) {
 
     //forecast
     console.info('forecast length:' + data.forecast.length);
+    labelsArray = []
+    precipitationArray = []
     for (var i = 0; i < data.forecast.length && i < 10; i++) {
         var value = data.forecast[i].precipitation
         // (降水無しの場合は999.99)
