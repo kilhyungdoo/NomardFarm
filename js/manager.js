@@ -39,6 +39,9 @@ Manager.prototype.locationCallBack = function(location) {
 //  this.targetDocument.getElementById(latitudeId).innerHTML = latitude;
 //  this.targetDocument.getElementById(longitudeId).innerHTML = longitude;
 
+  // 降雨量予測更新
+  renderWeather(latitude, longitude);
+
 };
 
 Manager.prototype.fuelCallBack = function(fuel) {
@@ -64,3 +67,86 @@ Manager.prototype.log = function(message, object) {
 Manager.prototype.getId = function(string, iframeId) {
   return string + '-' + iframeId;
 };
+
+
+// 降雨量関連
+var labelsArray = []
+var precipitationArray = []
+
+function renderWeather(latitude, longitude) {
+	getJSONP(latitude, longitude);
+
+	var lineChartData = {
+        labels : labelsArray,
+		datasets : [
+			{
+				label: "My Second dataset",
+				fillColor : "rgba(151,187,205,0.2)",
+				strokeColor : "rgba(151,187,205,1)",
+				pointColor : "rgba(151,187,205,1)",
+				pointStrokeColor : "#fff",
+				pointHighlightFill : "#fff",
+				pointHighlightStroke : "rgba(151,187,205,1)",
+                data : precipitationArray
+			}
+		]
+	};
+
+	var canvas = document.getElementById('canvas-1');
+    if (canvas == null) {
+        canvas = parent.document.getElementById('canvas-1');
+        if (canvas == null) {
+            this.log('canvas is null');
+        }
+    }
+    
+	// canvas.width = 455;
+	// canvas.height = 300;
+	canvas.width = 500;
+	canvas.height = 180;
+
+	var ctx = canvas.getContext("2d");
+	window.myLine = new Chart(ctx).Line(lineChartData, {
+		responsive: true
+	});
+}
+
+function getJSONP(latitude, longitude) {
+	var element = document.createElement("script");
+	element.src = 'http://api.yumake.jp/1.0/forecastMsm.php?lat=' + latitude + '&lon=' + longitude + '&key=0251f12288edabb56b3559173587cc54&format=jsonp&callback=getJSON';
+	document.body.appendChild(element);
+}
+
+function getJSON(data) {
+	//console.info('get json success');
+	console.info(data);
+
+    //forecast
+    console.info('forecast length:' + data.forecast.length);
+    labelsArray = []
+    precipitationArray = []
+    for (var i = 0; i < data.forecast.length && i < 10; i++) {
+        var value = data.forecast[i].precipitation
+        // (降水無しの場合は999.99)
+        if (data.forecast[i].precipitation == 999.99) {
+            value = 0
+        }
+        //console.info('forecast[' + i + ']:' + value);
+        precipitationArray.push(value)
+        
+        var dateObj = new Date(data.forecast[i].forecastDateTime);
+
+        var y = dateObj.getFullYear();
+        var m = dateObj.getMonth() + 1;
+        var d = dateObj.getDate();
+        var h = dateObj.getHours();
+        var minutes = dateObj.getMinutes();
+
+        // var yyyymmdd = y + "/" + (m < 10 ? "0" + m : m) + "/" + (d < 10 ? "0" + d : d)
+        //                  + "." +(h < 10 ? "0" + h : h) + ":" +(minutes < 10 ? "0" + minutes : minutes);
+        var yyyymmdd = (m < 10 ? "0" + m : m) + "/" + (d < 10 ? "0" + d : d)
+                            + "." +(h < 10 ? "0" + h : h) + ":" +(minutes < 10 ? "0" + minutes : minutes);
+
+        labelsArray.push(yyyymmdd)
+    }
+}
