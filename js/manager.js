@@ -19,7 +19,7 @@ Manager = function(targetDocument, roomId, iframeId) {
 Manager.prototype.vehicleSpeedCallBack = function(vehicleSpeed) {
   var id = this.getId('VehicleSpeed', this.iframeId);
   this.log("vehicle speed changed to: ", vehicleSpeed.speed);
-//  this.targetDocument.getElementById(id).innerHTML = Math.floor(vehicleSpeed.speed /1000);
+  this.targetDocument.getElementById(id).innerHTML = Math.floor(vehicleSpeed.speed /1000) + "<span class='unit'>km/h</span>";
 };
 
 Manager.prototype.engineSpeedCallBack = function(engineSpeed) {
@@ -42,10 +42,12 @@ Manager.prototype.locationCallBack = function(location) {
 };
 
 Manager.prototype.fuelCallBack = function(fuel) {
+  var id = this.getId('Fuel', this.iframeId);
   var level = fuel.level; // percentage of 100
   var consumption = fuel.instantConsumption;
   this.log('fuel level: ', level);
   this.log('fuel consumption: ', consumption);
+  this.targetDocument.getElementById(id).innerHTML = level + "<span class='unit'>%</span>";
 };
 
 Manager.prototype.log = function(message, object) {
