@@ -66,7 +66,7 @@ Manager.prototype.reloadMap = function() {
   console.log('reload map:' + this.iframeId);
   this.map._onResize();
 
-}
+};
 
 Manager.prototype.addMarker2 = function(vspeed, espeed, latitude, longitude) {
   var polylineOptions = {
@@ -76,9 +76,21 @@ Manager.prototype.addMarker2 = function(vspeed, espeed, latitude, longitude) {
   };
 
   var zIn = 0;
-  if(this.gCount > 0){
+  while(this.gCount > 0){
+    console.log('remove layer: ' + this.gCount);
     this.map.removeLayer(this.marker[this.gCount-1]);
+    delete this.marker[this.gCount-1];
+    this.gCount--;
   }
+
+  var self = this;
+  this.map.eachLayer(function (layer) {
+    if (layer._url) {
+      console.warn('map not delete');
+    } else {
+      self.map.removeLayer(layer);
+    }
+  });
   
   if(latitude === "" || longitude === ""){
     return;
