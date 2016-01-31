@@ -3,6 +3,8 @@ document.addEventListener( 'DOMContentLoaded', function() {
   // this is chlid js
   // use same js by different car(iframe, roomID)
 
+  console.info('sub.js');
+
   var parentDocument = parent.document;
 
   var roomId = document.getElementById('roomId').value;
@@ -47,6 +49,5 @@ document.addEventListener( 'DOMContentLoaded', function() {
       manager.fuelCallBack(fuel);
     }
   });
+
 });
-
-
