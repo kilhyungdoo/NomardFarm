@@ -18,11 +18,11 @@ Manager = function(targetDocument, roomId, iframeId) {
     self.initMap();
   }, 1000);
 
-/*  setInterval(function() {
-    console.log('reload');
-    self.reloadMap();
-  }, 5000);*/
-
+  this.targetDocument.getElementById('navTabsTop').addEventListener('click', function() {
+    setTimeout(function() {
+      self.reloadMap();
+    }, 700);
+  });
 };
 
 Manager.prototype.initMap = function() {
@@ -65,6 +65,7 @@ Manager.prototype.initMap = function() {
 Manager.prototype.reloadMap = function() {
   console.log('reload map:' + this.iframeId);
   this.map._onResize();
+
 }
 
 Manager.prototype.addMarker2 = function(vspeed, espeed, latitude, longitude) {
