@@ -19,7 +19,7 @@ Manager = function(targetDocument, roomId, iframeId) {
 Manager.prototype.vehicleSpeedCallBack = function(vehicleSpeed) {
   var id = this.getId('VehicleSpeed', this.iframeId);
   this.log("vehicle speed changed to: ", vehicleSpeed.speed);
-  this.targetDocument.getElementById(id).innerHTML = Math.floor(vehicleSpeed.speed /1000) + 'Km/h';
+  this.targetDocument.getElementById(id).innerHTML = Math.floor(vehicleSpeed.speed /1000) + "<span class='unit'>km/h</span>";
 };
 
 Manager.prototype.engineSpeedCallBack = function(engineSpeed) {
