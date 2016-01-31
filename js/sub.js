@@ -3,6 +3,8 @@ document.addEventListener( 'DOMContentLoaded', function() {
   // this is chlid js
   // use same js by different car(iframe, roomID)
 
+  console.info('sub.js');
+
   var parentDocument = parent.document;
 
   var roomId = document.getElementById('roomId').value;
@@ -15,6 +17,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
   // Vehicle Speed
   var currentTime1 = Date.now();
   var vehicleSpeedSub = navigator.vehicle.vehicleSpeed.subscribe(function(vehicleSpeed) {
+    console.log('speed');
     if (Date.now() - currentTime1 > 1000) {
       currentTime1 = Date.now();
       manager.vehicleSpeedCallBack(vehicleSpeed);
@@ -47,6 +50,5 @@ document.addEventListener( 'DOMContentLoaded', function() {
       manager.fuelCallBack(fuel);
     }
   });
+
 });
-
-

@@ -1,7 +1,6 @@
 iframe {
   display: none;
 }
-
 body {
   font-family: Avenir, "Open Sans", "Helvetica Neue", Helvetica, Arial, Verdana, Roboto, "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
   color: #eee;
@@ -30,7 +29,7 @@ body {
   position: fixed;
   top: 0;
   bottom: 0;
-    left: 0;
+  left: 0;
   right: 0;
   z-index: 2;
   width: 100%;
@@ -43,20 +42,16 @@ section.container {
   right: 0;
   z-index: 9999;
 }
-
 .nav-tabs {
   background-color: #555;
 }
-.nav-tabs li{
+.nav-tabs li {
   opacity: .5;
 }
 .nav-tabs li.active {
   opacity: 1;
 }
-.nav-tabs a,
-.nav-tabs .active>a,
-.nav-tabs .active>a:hover,
-.nav-tabs .active>a:focus {
+.nav-tabs a, .nav-tabs .active>a, .nav-tabs .active>a:hover, .nav-tabs .active>a:focus {
   background-color: #555!important;
   border: none!important;
 }
@@ -77,17 +72,22 @@ section.container {
   content: "";
   z-index: 10;
 }
-
 .nav__main li.active:after {
   border-color: #070707 transparent;
 }
-
-.whather__caption,
-.temp__caption {
+.temp {
+  margin-top: 20px;
+}
+.weather, .temp {
+  margin: 50px auto;
+}
+.weather__caption, .temp__caption {
   font-size: 20px;
+  opacity: .9;
 }
 .temp__numeric {
-  font-size: 40px;
+  font-size: 65px;
+  line-height: 1.1;
 }
 .car_status {
   padding-bottom: 20px;
@@ -102,11 +102,10 @@ section.container {
 }
 .car_status__caption .unit {
   font-size: 18px;
-  vertical-align: text-top;;
+  vertical-align: text-top;
+  ;
 }
-.car_status__caption
-.external__status,
-.internal__status{
+.car_status__caption .external__status, .internal__status {
   margin-bottom: 20px;
 }
 .well {
@@ -118,17 +117,17 @@ section.container {
 }
 .log {
   width: 100%;
-  height: 100px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-top: 20px;
+  height: 150px;
+  margin: 0;
   text-align: left;
   overflow-y: scroll;
 }
-.col-right {
+.col-right>div {
   background-color: #2a2929;
+}
+.growing {
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 3px;
 }
 .progress {
   height: 10px;
@@ -141,6 +140,7 @@ section.container {
 .monitoring h3, .map h3 {
   font-size: 16px;
   text-align: left;
+  vertical-align: middle;
 }
 .btn, .btn:hover {
   font-size: 18px;
@@ -152,4 +152,9 @@ section.container {
   background-color: #e4cc00;
   border: 2px solid #e4cc00;
   color: black;
+}
+
+.map-view {
+  width: 455px;  
+  height: 300px;
 }

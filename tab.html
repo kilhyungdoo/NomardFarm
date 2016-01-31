@@ -2,19 +2,19 @@
 
   <div class="col-md-6 col-left">
     <div class="external__status row">
-      <div class="col-md-10 map">
+      <div class="col-md-9 map">
         <h3>カーマップ</h3>
         <div class="tab-pane fade in active" id="subtab1-{{id}}">
-          <img src="http://placehold.it/455x300?text=Map">
+          <div class="map-view" id="map-{{id}}">map</div>
         </div>
       </div>
 
-      <div class="col-md-2">
+      <div class="col-md-3">
         <div class="weather">
-          <img class="weather__icon" src="img/weather_rain.png" width="72">
+          <img class="weather__icon" src="img/weather_rain.png" width="86px">
         </div>
         <div class="temp">
-          <span class="temp__numeric">-3</span>
+          <div class="temp__numeric">-3</div>
           <div class="temp__caption">temp</div>
         </div>
       </div>
@@ -22,17 +22,18 @@
 
     <div class="internal__status row">
       <div class="col-md-12 car_status">
-        <img src="img/animation_open.gif">
+        <span id="CarAni-{{id}}"><img src="img/animation_close.gif"></span>
+        <span id="lineAni-{{id}}"><img src=""></span>
       </div>
       <div class="text-left">
         <div class="car_speed col-md-4">
-          <img class="car_status__icon" src="img/icon_speed.png"><span id="VehicleSpeed-{{id}}" class="car_status__caption">0</span>
+          <img class="car_status__icon" src="img/icon_speed.png"><span id="VehicleSpeed-{{id}}" class="car_status__caption">0<span class='unit'>km/h</span></span>
         </div>
         <div class="car_temp col-md-4">
           <img class="car_status__icon" src="img/icon_temp.png"><span class="car_status__caption">18<span class="unit">℃</span></span>
         </div>
         <div class="car_fuel col-md-4">
-          <img class="car_status__icon" src="img/icon_gas.png"><span id="Fuel-{{id}}" class="car_status__caption">0</span>
+          <img class="car_status__icon" src="img/icon_gas.png"><span id="Fuel-{{id}}" class="car_status__caption">0<span class='unit'>%</span></span>
         </div>
       </div>
       <div class="col-md-12">
@@ -45,39 +46,44 @@
   </div>
 
   <div class="col-md-6 col-right">
-    <div class="progress">
-      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+    <div class="col-md-12">
+      <img class="growing" src="img/growing.png">
+      <div class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="pull-left">種植え</div>
-        <div class="pull-right">収穫</div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="pull-left">種植え</div>
+          <div class="pull-right">収穫</div>
+        </div>
       </div>
-    </div>
-    <div class="monitoring">
-      <h3>成長状況モニタリング</h3>
-      <img src="http://placehold.it/555x250">
-    </div>
-    <div class="monitoring">
-      <h3>成育情報モニタリング</h3>
-      <div class="col-md-12">
+      <div class="monitoring">
+        <h3><img src="img/icon_camera.png"> 成長状況モニタリング</h3>
+        <img src="img/gaz_moniter{{id}}.png">
+      </div>
+      <div class="monitoring">
+        <h3><img src="img/icon_chart.png"> 予想降雨量</h3>
         <canvas id="canvas-{{id}}" height="500" width="180"></canvas>
       </div>
-    <div class="col-md-12">
-      <div class="col-md-6">
-        <button class="btn btn-default btn-block daylighting" role="button">採光</button>
-      </div>
-      <div class="col-md-6">
-        <button class="btn btn-default btn-block watering" role="button">水やり</button>
-      </div>
-      <div class="col-md-6">
-        <button class="btn btn-default btn-block open-close" role="button">コンテナ開閉</button>
-      </div>
-      <div class="col-md-6">
-        <button class="btn btn-warning btn-block harvest" role="button">収穫</button>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-6">
+              <button class="btn btn-default btn-block daylighting" role="button">採光</button>
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-default btn-block watering" role="button">水やり</button>
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-default btn-block open-close" role="button">コンテナ開閉</button>
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-warning btn-block harvest" role="button">収穫</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
 </div>
