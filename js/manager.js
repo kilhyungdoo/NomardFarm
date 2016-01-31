@@ -13,13 +13,39 @@ Manager = function(targetDocument, roomId, iframeId) {
   var id = this.getId('WSRoomID', this.iframeId);
 //  this.targetDocument.getElementById(id).innerHTML = roomId;
 
+  var self = this;
+  setTimeout(function() {
+    self.initMap();
+  }, 1000);
+};
+
+Manager.prototype.initMap = function() {
+  console.info('initMap');
+  var id = this.getId('map', this.iframeId);
+  console.info(id);
+
+  //TODO:初期値を直値で入れている @ 幕張
+  initLatitude = 35.650495;
+  initLongitude = 140.03604833333;
+
+  map = L.map(id).setView([initLatitude, initLongitude], 16);
+
+  //OSMレイヤー追加
+  L.tileLayer(
+    'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>',
+      maxZoom: 17
+    }
+  ).addTo(map);
+
 };
 
 // callback for getting data real time
 Manager.prototype.vehicleSpeedCallBack = function(vehicleSpeed) {
   var id = this.getId('VehicleSpeed', this.iframeId);
   this.log("vehicle speed changed to: ", vehicleSpeed.speed);
-  this.targetDocument.getElementById(id).innerHTML = Math.floor(vehicleSpeed.speed /1000) + "<span class='unit'>km/h</span>";
+//  this.targetDocument.getElementById(id).innerHTML = Math.floor(vehicleSpeed.speed /1000);
 };
 
 Manager.prototype.engineSpeedCallBack = function(engineSpeed) {
@@ -42,12 +68,10 @@ Manager.prototype.locationCallBack = function(location) {
 };
 
 Manager.prototype.fuelCallBack = function(fuel) {
-  var id = this.getId('Fuel', this.iframeId);
   var level = fuel.level; // percentage of 100
   var consumption = fuel.instantConsumption;
   this.log('fuel level: ', level);
   this.log('fuel consumption: ', consumption);
-  this.targetDocument.getElementById(id).innerHTML = level + "<span class='unit'>%</span>";
 };
 
 Manager.prototype.log = function(message, object) {

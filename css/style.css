@@ -100,3 +100,8 @@ body {
   border: 2px solid #e4cc00;
   color: black;
 }
+
+.map-view {
+  width: 455px;  
+  height: 300px;
+}
