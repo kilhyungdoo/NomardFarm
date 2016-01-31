@@ -28,7 +28,8 @@ Manager.prototype.initMap = function() {
   initLatitude = 35.650495;
   initLongitude = 140.03604833333;
 
-  map = L.map(id).setView([initLatitude, initLongitude], 16);
+  this.map = L.map(id).setView([initLatitude, initLongitude], 16);
+  this.marker = [];
 
   //OSMレイヤー追加
   L.tileLayer(
@@ -37,15 +38,39 @@ Manager.prototype.initMap = function() {
       attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>',
       maxZoom: 17
     }
-  ).addTo(map);
+  ).addTo(this.map);
+
+  var redCarIcon = L.Icon.Default.extend({
+     options: {
+           iconUrl: './img/redcar.png',
+           iconSize:  [36, 24],
+           iconAnchor: [20, 10],
+           popupAnchor: [0, 0]
+     }
+  });
+  this.redCarIcon = new redCarIcon();
+
+  this.gCount = 0;
 
 };
 
 
+Manager.prototype.clearMap = function() {
+  var i=0;
+  for(i=0; i<this.gCount; i++){
+    this.map.removeLayer(this.marker[i]);
+  }
+  polylinePoints.splice(0, this.gCount);//gCountの数が、マーカーの数
+
+  for(i=1; i<this.gCount; i++){
+    this.map.removeLayer(polyline[i]);
+  }
+  polyline.splice(0, this.gCount);
+
+  this.gCount=0;
+};
+
 Manager.prototype.addMarker2 = function(vspeed, espeed, latitude, longitude) {
-/*  var map;
-  var marker = [];
-  var gCount = 0;
   var polyline = [];
   var polylinePoints = [];
   var polylineOptions = {
@@ -55,25 +80,25 @@ Manager.prototype.addMarker2 = function(vspeed, espeed, latitude, longitude) {
   };
 
   var zIn = 0;
-  if(gCount > 0){
-    map.removeLayer(marker[gCount-1]);
+  if(this.gCount > 0){
+    this.map.removeLayer(this.marker[this.gCount-1]);
   }
   
   if(latitude === "" || longitude === ""){
     return;
   }
   
-  marker[gCount] = L.marker([latitude, longitude])
-    .setIcon(redCarIcon)
+  this.marker[this.gCount] = L.marker([latitude, longitude])
+    .setIcon(this.redCarIcon)
     .bindPopup("<h2>Vehicle Speed: " + vspeed + "km/h" + "</h2><h2>Engine Speed:  " + espeed + "rpm</h2>")
-    .addTo(map)
+    .addTo(this.map)
     .openPopup();
   
-  zIn = gCount * 10; // gCountをそのままsetZIndexOffset()に与えても新しいマーカーが必ずしも上にならないので、大きな差をつける。
-  marker[gCount].setZIndexOffset(zIn);//マーカーにz-indexを設定
-  map.panTo(new L.latLng(latitude, longitude));//地図の自動移動
+  zIn = this.gCount * 10; // gCountをそのままsetZIndexOffset()に与えても新しいマーカーが必ずしも上にならないので、大きな差をつける。
+  this.marker[this.gCount].setZIndexOffset(zIn);//マーカーにz-indexを設定
+  this.map.panTo(new L.latLng(latitude, longitude));//地図の自動移動
   
-  gCount++; */
+  this.gCount++; 
 };
 
 // callback for getting data real time
@@ -100,7 +125,7 @@ Manager.prototype.locationCallBack = function(location) {
 
   var gVehicleSpeed = 10;
   var gEngineSpeed = 10;
-  addMarker2(gVehicleSpeed, gEngineSpeed, location.latitude, location.longitude);
+  this.addMarker2(gVehicleSpeed, gEngineSpeed, location.latitude, location.longitude);
 
 //  this.targetDocument.getElementById(latitudeId).innerHTML = latitude;
 //  this.targetDocument.getElementById(longitudeId).innerHTML = longitude;
