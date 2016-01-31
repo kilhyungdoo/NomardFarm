@@ -111,7 +111,7 @@ Manager.prototype.vehicleSpeedCallBack = function(vehicleSpeed) {
   var car_id = this.getId('CarAni', this.iframeId);
   var line_id = this.getId('LineAni', this.iframeId);
 
-  if (vehicleSpeed.speed / 1000 > 1) {
+  if (vehicleSpeed.speed / 1000 > 2) {
       this.targetDocument.getElementById(car_id).innerHTML = "<img src='img/animation_stopMode.gif'>";
       this.targetDocument.getElementById(line_id).innerHTML = "<img src='img/animation_moveLine.gif'>";
   } else {
