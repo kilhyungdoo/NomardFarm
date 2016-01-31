@@ -17,6 +17,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
   // Vehicle Speed
   var currentTime1 = Date.now();
   var vehicleSpeedSub = navigator.vehicle.vehicleSpeed.subscribe(function(vehicleSpeed) {
+    console.log('speed');
     if (Date.now() - currentTime1 > 1000) {
       currentTime1 = Date.now();
       manager.vehicleSpeedCallBack(vehicleSpeed);
