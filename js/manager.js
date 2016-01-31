@@ -149,6 +149,11 @@ Manager.prototype.fuelCallBack = function(fuel) {
   var consumption = fuel.instantConsumption;
   this.log('fuel level: ', level);
   this.log('fuel consumption: ', consumption);
+
+  var id = this.getId('Fuel', this.iframeId);
+  this.targetDocument.getElementById(id).innerHTML = fuel.level;
+
+
 };
 
 Manager.prototype.log = function(message, object) {
