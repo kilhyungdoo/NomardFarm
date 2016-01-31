@@ -42,10 +42,12 @@ Manager.prototype.locationCallBack = function(location) {
 };
 
 Manager.prototype.fuelCallBack = function(fuel) {
+  var id = this.getId('Fuel', this.iframeId);
   var level = fuel.level; // percentage of 100
   var consumption = fuel.instantConsumption;
   this.log('fuel level: ', level);
   this.log('fuel consumption: ', consumption);
+  this.targetDocument.getElementById(id).innerHTML = level + "<span class='unit'>%</span>";
 };
 
 Manager.prototype.log = function(message, object) {
