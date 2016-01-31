@@ -15,10 +15,10 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		renderWeather(latitude, longitude);
 	});
 	setTab('./tab.html', 'tab2', "2", function() {
-
+		console.info('setTab 2');
 	});
 	setTab('./tab.html', 'tab3', "3", function() {
-		
+		console.info('setTab 3');
 	});
 
 
