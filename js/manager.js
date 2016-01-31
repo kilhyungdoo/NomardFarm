@@ -17,6 +17,12 @@ Manager = function(targetDocument, roomId, iframeId) {
   setTimeout(function() {
     self.initMap();
   }, 1000);
+
+/*  setInterval(function() {
+    console.log('reload');
+    self.reloadMap();
+  }, 5000);*/
+
 };
 
 Manager.prototype.initMap = function() {
@@ -30,6 +36,8 @@ Manager.prototype.initMap = function() {
 
   this.map = L.map(id).setView([initLatitude, initLongitude], 16);
   this.marker = [];
+  this.polyline = [];
+  this.polylinePoints = [];
 
   //OSMレイヤー追加
   L.tileLayer(
@@ -54,25 +62,12 @@ Manager.prototype.initMap = function() {
 
 };
 
-
-Manager.prototype.clearMap = function() {
-  var i=0;
-  for(i=0; i<this.gCount; i++){
-    this.map.removeLayer(this.marker[i]);
-  }
-  polylinePoints.splice(0, this.gCount);//gCountの数が、マーカーの数
-
-  for(i=1; i<this.gCount; i++){
-    this.map.removeLayer(polyline[i]);
-  }
-  polyline.splice(0, this.gCount);
-
-  this.gCount=0;
-};
+Manager.prototype.reloadMap = function() {
+  console.log('reload map:' + this.iframeId);
+  this.map._onResize();
+}
 
 Manager.prototype.addMarker2 = function(vspeed, espeed, latitude, longitude) {
-  var polyline = [];
-  var polylinePoints = [];
   var polylineOptions = {
         color: 'blue',
         weight: 3,
