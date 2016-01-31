@@ -87,7 +87,7 @@ section.container {
 }
 .temp__numeric {
   font-size: 65px;
-  line-height: 1.1;
+  line-height: 1;
 }
 .car_status {
   padding-bottom: 20px;
@@ -95,6 +95,7 @@ section.container {
 .car_status__caption {
   font-size: 50px;
   font-weight: normal;
+  line-height: 1.1;
   vertical-align: middle;
 }
 .car_status__icon {
@@ -102,10 +103,11 @@ section.container {
 }
 .car_status__caption .unit {
   font-size: 18px;
-  vertical-align: text-top;
+  padding-left: 3px;
+  vertical-align: top;
   ;
 }
-.car_status__caption .external__status, .internal__status {
+.car_status__caption .external__status {
   margin-bottom: 20px;
 }
 .well {
@@ -114,6 +116,7 @@ section.container {
   border-radius: 0;
   background-color: #2a2929;
   border: none;
+  margin-bottom: 0;
 }
 .log {
   width: 100%;
@@ -135,7 +138,7 @@ section.container {
   margin-bottom: 10px;
 }
 .monitoring {
-  margin-bottom: 35px;
+  margin-bottom: 50px;
 }
 .monitoring h3, .map h3 {
   font-size: 16px;
@@ -143,8 +146,8 @@ section.container {
   vertical-align: middle;
 }
 .btn, .btn:hover {
-  font-size: 18px;
-  margin-bottom: 30px;
+  font-size: 24px;
+  margin-bottom: 32.5px;
   background-color: black;
   border: 2px solid white;
 }
@@ -155,6 +158,6 @@ section.container {
 }
 
 .map-view {
-  width: 455px;  
+  width: 400px;
   height: 300px;
 }
